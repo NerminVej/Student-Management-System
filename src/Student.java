@@ -36,6 +36,7 @@ public class Student {
         return enrollmentStatus;
     }
 
+    // A method to print out the credentials of a student.
     public void studentPrinter(){
         System.out.println("Student ID: " + studentID);
         System.out.println("Contact Information: " + contactInformation);

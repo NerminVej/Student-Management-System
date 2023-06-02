@@ -35,4 +35,10 @@ public class Student {
     public String get_enrollmentStatus(){
         return enrollmentStatus;
     }
+
+    public void studentPrinter(){
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Contact Information: " + contactInformation);
+        System.out.println("Enrollment Status: " + enrollmentStatus);
+    }
 }

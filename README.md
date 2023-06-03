@@ -3,7 +3,7 @@
 
 The Student Management System is a Java-based application that allows administrators to manage student records, courses, and grades. It provides functionalities for adding, updating, and deleting student and course information. Additionally, administrators can assign grades to students and generate reports based on student performance.
 
-1. Student Management:
+# 1. Student Management:
 
 ## Add Student: Allow administrators to add new student records to the system. Collect relevant details such as name, student ID, contact information, and enrollment status.
 

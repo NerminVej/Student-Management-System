@@ -26,6 +26,14 @@ public class CourseManager {
         }
     }
 
+    public int get_TotalEnrolledStudents(){
+        int totalStudents = 0;
+        for (Course course : courseList){
+            totalStudents += course.getEnrolledStudents();
+        }
+        return totalStudents;
+    }
+
     // This method handles the deletion of a course
     public void deleteCourse(String courseNameToDelete){
         // Foreach loop through the ArrayList to find the "Course" with the matching name.
@@ -42,6 +50,17 @@ public class CourseManager {
         // If nothing was found we print a message.
         System.out.println("Could not find a course with a matching name");
 
+    }
+    // This method iterates over each course inside the courseList ArrayList.
+    public void createCourseEnrollmentReport(){
+        for (Course course : courseList){
+            // We call the viewEnrollment method to create a list of all students enrolled in a course.
+            course.viewEnrollment();
+            System.out.println("Course: " + course.get_courseName());
+            System.out.println("Course Code: " + course.get_code());
+            System.out.println("Credit Hours:" + course.get_creditHours());
+            System.out.println("Number of Students Enrolled: " );
+        }
     }
 
 }

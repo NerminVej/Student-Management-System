@@ -125,6 +125,7 @@ public class Student {
     }
     // A method to create a student report. Shows the gpa and grades of the student as well as other information.
     public void createStudentReport(){
+        // We just use all the different methods that we have created in this class.
         System.out.println("Student Report:");
         studentPrinter();
         calculateGPA();

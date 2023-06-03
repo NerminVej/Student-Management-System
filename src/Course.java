@@ -39,6 +39,11 @@ public class Course {
         creditHours = newCreditHours;
     }
 
+    // This method returns the amount of students enrolled inside of one course.
+    public int getEnrolledStudents(){
+        return studentsInCourse.size();
+    }
+
     // This method adds a student to the course
     public void addStudentToCourse(Student student){
         // additional validation to check if the student is already inside of the course.
@@ -55,14 +60,19 @@ public class Course {
 
     public void viewEnrollment(){
         // Foreach loop through all the students in the ArrayList
+        int totalStudents = 0;
         for (Student student : studentsInCourse){
             System.out.println("The students that are inside of the course " + courseName + " are:");
             System.out.println("Student ID " + student.get_studentID()
                     + ", Contact Information: " + student.get_contactInformation() +
                     ", Enrollment Status: " + student.get_enrollmentStatus());
+            totalStudents += 1;
 
         }
+        System.out.println("Total amount of students enrolled in this course is: " + totalStudents);
     }
+
+
 
 
 }

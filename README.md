@@ -354,4 +354,61 @@ else if (newGrade > 0){
 
 We can have some more input validations and error handling.
 
+## Calculate GPA: Provide a feature to calculate the Grade Point Average (GPA) for each student based on their grades.
+
+````Java
+// A new variable to calculate the GPA of a student.  
+private double gpa;
+`````
+
+We create a new variable to store the students gpa. This time we use a double variable type.
+
+````Java
+// A method to calculate the GPA of a student  
+public void calculateGPA(){  
+    // Another variable we use to sum up all the variables  
+    int totalGrades = 0;  
+    // For each loop to go through the hashmap grades.  
+    for (int grades : gradesOfCourses.values()){  
+        totalGrades += grades;  
+    }  
+    // Divide the sum of the grades with the size of the hashmap.  
+    if (gradesOfCourses.size() > 0){  
+        // We need to turn one of the variables into a double type to get a double value at the end.  
+        gpa = (double) totalGrades / gradesOfCourses.size();  
+    }  
+    else {  
+        gpa = 0.0;  
+    }  
+}
+`````
+
+Again we can go line by line through the code.
+
+````Java
+int totalGrades = 0;
+`````
+
+We initialize a new variable called "totalGrades" that we set to 0. We use this variable to sum up all of the grades that a student accumulated.
+
+````Java
+for (int grades : gradesOfCourses.values()){  
+    totalGrades += grades;  
+}
+`````
+
+Simple For-each loop that goes through all the grades and adds them to the "totalGrades" variable.
+
+````Java
+// Divide the sum of the grades with the size of the hashmap.  
+if (gradesOfCourses.size() > 0){  
+    // We need to turn one of the variables into a double type to get a double value at the end.  
+    gpa = (double) totalGrades / gradesOfCourses.size();  
+}  
+else {  
+    gpa = 0.0;  
+}
+`````
+
+An "if" statement to check, if the student actually has some grades. If he does not we just set the gpa to 0.0.
 

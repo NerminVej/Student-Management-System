@@ -12,4 +12,14 @@ public class Course {
     }
 
 
+    public String get_courseName(){
+        return courseName;
+    }
+    public String get_code(){
+        return code;
+    }
+    public int get_creditHours(){
+        return creditHours;
+    }
+
 }

@@ -278,3 +278,80 @@ public void viewEnrollment(){
 
 A foreach loop that iterates through all of the students that are inside of a course. We have done such a thing before in this project.
 
+# 4. Grade Management:
+
+## Assign Grades: Implement a grading system where administrators can assign grades to students for each enrolled course. Store and manage the grades associated with each student and course.
+
+````Java
+private HashMap<String, Integer> gradesOfCourses;
+`````
+
+I have added a HashMap inside of the "Student" class. With a HashMap we can store the name of the course and we can store the student ID.
+
+````Java
+public void set_grade(String courseName, int courseGrade){  
+    // I made a grading system that goes from 0 to 15 (German A-levels system)  
+    if (courseGrade >= 0 && courseGrade <= 15){  
+        // We put the new grade with the name of the course inside the hashmap  
+        gradesOfCourses.put(courseName, courseGrade);  
+    }  
+    else {  
+        System.out.println("Invalid grade, Grade should be between 0 and 15.");  
+    }  
+}
+`````
+
+We then create a method called "set_grade" which is responsible for putting values inside of the "gradesOfCourses" HashMap.
+We check if the grade we give "courseGrade" is inside of the valid range of grades.
+I used the range 0 to 15 since these are the marks that A-level students get in Germany.
+
+## Update Grades: Allow administrators to update previously assigned grades if necessary.
+
+````Java
+// This method checks if the student already has a grade for a course. If he does then we can update it.  
+public void update_grade(String courseName, int newGrade){  
+  
+    // We have some input validation here. So that the grade is in the appropriate  range.  
+    if (gradesOfCourses.containsKey(courseName) && newGrade >= 0 && newGrade <= 15){  
+        gradesOfCourses.put(courseName, newGrade);  
+        return;    }  
+    else if (gradesOfCourses.containsKey(courseName) == false){  
+        System.out.println("The student " + studentID + " is not inside of the course " + courseName);  
+  
+    }  
+    else if (newGrade > 15){  
+        System.out.println("The grade specified is bigger than 15. Adjust the Grade so it is in the range of 0-15.");  
+    }  
+    else if (newGrade > 0){  
+        System.out.println("The grade specified is smaller than 0. Adjust the Grade so it is in the range of 0-15.");  
+    }  
+  
+}
+`````
+
+Let us go through this method one by one.
+
+````Java
+if (gradesOfCourses.containsKey(courseName) && newGrade >= 0 && newGrade <= 15){  
+    gradesOfCourses.put(courseName, newGrade);  
+    return;}
+`````
+
+At first we have an "if" statement. This checks if the HashMap contains a key with the name of the course inside of it. And we also want the grade we give to be in range of the valid range that we specified before for our project.
+
+````Java
+else if (gradesOfCourses.containsKey(courseName) == false){  
+    System.out.println("The student " + studentID + " is not inside of the course " + courseName);  
+  
+}  
+else if (newGrade > 15){  
+    System.out.println("The grade specified is bigger than 15. Adjust the Grade so it is in the range of 0-15.");  
+}  
+else if (newGrade > 0){  
+    System.out.println("The grade specified is smaller than 0. Adjust the Grade so it is in the range of 0-15.");  
+}
+`````
+
+We can have some more input validations and error handling.
+
+

@@ -59,6 +59,27 @@ public class Student {
     public int get_grade(String courseName){
         return gradesOfCourses.get(courseName);
     }
+
+    // This method checks if the student already has a grade for a course. If he does then we can update it.
+    public void update_grade(String courseName, int newGrade){
+
+        // We have some input validation here. So that the grade is in the appropriate  range.
+        if (gradesOfCourses.containsKey(courseName) && newGrade >= 0 && newGrade <= 15){
+            gradesOfCourses.put(courseName, newGrade);
+            return;
+        }
+        else if (gradesOfCourses.containsKey(courseName) == false){
+            System.out.println("The student " + studentID + " is not inside of the course " + courseName);
+
+        }
+        else if (newGrade > 15){
+            System.out.println("The grade specified is bigger than 15. Adjust the Grade so it is in the range of 0-15.");
+        }
+        else if (newGrade > 0){
+            System.out.println("The grade specified is smaller than 0. Adjust the Grade so it is in the range of 0-15.");
+        }
+
+    }
     // A method to print out the credentials of a student.
     public void studentPrinter(){
         System.out.println("Student ID: " + studentID);

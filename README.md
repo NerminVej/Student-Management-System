@@ -412,3 +412,88 @@ else {
 
 An "if" statement to check, if the student actually has some grades. If he does not we just set the gpa to 0.0.
 
+# 5. Reports
+
+## Student Performance Report: Generate reports summarizing student performance. This report may include the student's overall GPA, course-wise grades, and any other relevant information.
+
+````Java
+// A method to create a student report. Shows the gpa and grades of the student as well as other information.  
+public void createStudentReport(){  
+    // We just use all the different methods that we have created in this class.  
+    System.out.println("Student Report:");  
+    studentPrinter();  
+    calculateGPA();  
+    System.out.println("GPA score of the student is: " + gpa);  
+    printGrades();  
+}
+`````
+
+Inside of this method we are creating a report of a student. We do that by using different methods that we have created in previous steps just by calling them.
+
+The "printGrades" method is a new one though.
+
+````Java
+// A method to print out all the grades of a student.  
+public void printGrades(){  
+    // We make a for-each loop that goes over each individual entry.  
+    for (Map.Entry<String, Integer> entry: gradesOfCourses.entrySet()){  
+        // From each entry we get the key and the value in 2 different variables.  
+        String courseName = entry.getKey();  
+        Integer grade = entry.getValue();  
+        System.out.println("Course name: " + courseName + " Grade: " + grade);  
+    }  
+}
+`````
+
+This method prints out all the grades of a student.
+
+````Java
+for (Map.Entry<String, Integer> entry: gradesOfCourses.entrySet()){  
+    // From each entry we get the key and the value in 2 different variables.  
+    String courseName = entry.getKey();  
+    Integer grade = entry.getValue();  
+    System.out.println("Course name: " + courseName + " Grade: " + grade);  
+}
+`````
+
+We use a for-each loop to go through every entry. With "Map.Entry<String, Integer>" we are able to get every single entry with its key and its value.
+
+````Java
+String courseName = entry.getKey();  
+Integer grade = entry.getValue();
+`````
+
+We set "courseName" and "grade" to the value of "entry.getKey()" and "entry.getValue()" respectively.
+
+## Course Enrollment Report: Generate a report displaying the enrollment details for each course, including the number of students enrolled.
+
+Inside of the "Course" class I added a method.
+
+````Java
+public int getEnrolledStudents(){  
+    return studentsInCourse.size();  
+}
+`````
+
+With this method we are able to gain the amount of students that are currently in a course.
+
+With this method I can now create a new method that iterates over each course inside of the list of courses and prints out a report.
+
+````Java
+// This method iterates over each course inside the courseList ArrayList.  
+public void createCourseEnrollmentReport(){  
+    for (Course course : courseList){  
+        // We call the viewEnrollment method to create a list of all students enrolled in a course.  
+        course.viewEnrollment();  
+        System.out.println("Course: " + course.get_courseName());  
+        System.out.println("Course Code: " + course.get_code());  
+        System.out.println("Credit Hours:" + course.get_creditHours());  
+        System.out.println("Number of Students Enrolled: " + course.getEnrolledStudents());  
+    }  
+}
+`````
+
+We do it again with a for-each loop. We use getter methods that we have previously created to gain information about the specific course. At the end we use the "getEnrolledStudents()" method to gain the number of total students inside of that course.
+
+
+

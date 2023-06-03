@@ -26,6 +26,7 @@ public class CourseManager {
         }
     }
 
+    // A method that returns the total number of students enrolled in all courses.
     public int get_TotalEnrolledStudents(){
         int totalStudents = 0;
         for (Course course : courseList){
@@ -59,7 +60,7 @@ public class CourseManager {
             System.out.println("Course: " + course.get_courseName());
             System.out.println("Course Code: " + course.get_code());
             System.out.println("Credit Hours:" + course.get_creditHours());
-            System.out.println("Number of Students Enrolled: " );
+            System.out.println("Number of Students Enrolled: " + course.getEnrolledStudents());
         }
     }
 

@@ -58,21 +58,19 @@ public class Course {
         }
     }
 
+    // A method that loops through all the students inside a course.
     public void viewEnrollment(){
         // Foreach loop through all the students in the ArrayList
-        int totalStudents = 0;
+
         for (Student student : studentsInCourse){
             System.out.println("The students that are inside of the course " + courseName + " are:");
             System.out.println("Student ID " + student.get_studentID()
                     + ", Contact Information: " + student.get_contactInformation() +
                     ", Enrollment Status: " + student.get_enrollmentStatus());
-            totalStudents += 1;
+
 
         }
-        System.out.println("Total amount of students enrolled in this course is: " + totalStudents);
+        System.out.println("Total amount of students enrolled in this course is: " + getEnrolledStudents());
     }
-
-
-
 
 }

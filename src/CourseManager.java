@@ -26,5 +26,23 @@ public class CourseManager {
         }
     }
 
+    // This method handles the deletion of a course
+    public void deleteCourse(String courseNameToDelete){
+        // Foreach loop through the ArrayList to find the "Course" with the matching name.
+        for (Course course : courseList){
+            // We check if the course name is the same as the one we want to delete.
+            if (course.get_courseName().equals(courseNameToDelete)){
+                courseList.remove(course);
+                System.out.println("The course " + course.get_courseName() + " got deleted successfully!");
+                // To exit out of the loop.
+                return;
+            }
+
+        }
+        // If nothing was found we print a message.
+        System.out.println("Could not find a course with a matching name");
+
+    }
+
 }
 

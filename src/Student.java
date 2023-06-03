@@ -62,7 +62,16 @@ public class Student {
     public int get_grade(String courseName){
         return gradesOfCourses.get(courseName);
     }
-
+    // A method to print out all the grades of a student.
+    public void printGrades(){
+        // We make a for-each loop that goes over each individual entry.
+        for (Map.Entry<String, Integer> entry: gradesOfCourses.entrySet()){
+            // From each entry we get the key and the value in 2 different variables.
+            String courseName = entry.getKey();
+            Integer grade = entry.getValue();
+            System.out.println("Course name: " + courseName + " Grade: " + grade);
+        }
+    }
     public double get_gpa(){
         return gpa;
     }
@@ -113,5 +122,13 @@ public class Student {
         else {
             gpa = 0.0;
         }
+    }
+    // A method to create a student report. Shows the gpa and grades of the student as well as other information.
+    public void createStudentReport(){
+        System.out.println("Student Report:");
+        studentPrinter();
+        calculateGPA();
+        System.out.println("GPA score of the student is: " + gpa);
+        printGrades();
     }
 }

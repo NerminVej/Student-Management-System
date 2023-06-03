@@ -215,3 +215,66 @@ public void deleteCourse(String courseNameToDelete){
 
 Very similar code to the delete method inside of our "StudentManger" class. This time I used a foreach loop to iterate through the ArrayList.
 
+# 3. Enrollment:
+
+## Enroll Student: Implement a feature that enables administrators to enroll students in courses. Associate students with the courses they are registered for, considering appropriate validation to prevent duplicate enrollments.
+
+````Java
+private ArrayList<Student> studentsInCourse;
+`````
+
+Inside of our "Course" class we add a new ArrayList that contains "Student" objects inside of it.
+
+````Java
+// This method adds a student to the course  
+public void addStudentToCourse(Student student){  
+    // additional validation to check if the student is already inside of the course.  
+    if (studentsInCourse.contains(student)){  
+        System.out.println("Student is already inside of the course");  
+        // Exit the method if the student is already inside of the course  
+        return;  
+    }  
+    // Otherwise add the student to the course.  
+    else{  
+        studentsInCourse.add(student);  
+    }  
+}
+`````
+
+We then implement a method that enables us to add a new student to our ArrayList.
+
+````Java
+if (studentsInCourse.contains(student)){  
+    System.out.println("Student is already inside of the course");  
+    // Exit the method if the student is already inside of the course  
+    return;  
+}
+`````
+
+Important "if" validation to check whether or not the student is already inside of the course or not. If the student is already inside of the course then we just "return" and quit the method.
+
+````Java
+else{  
+    studentsInCourse.add(student);  
+}
+`````
+
+Else we add the student to our ArrayList.
+
+## View Enrollment: Provide the ability to view enrolled students for each course, displaying relevant student information.
+
+````Java
+public void viewEnrollment(){  
+    // Foreach loop through all the students in the ArrayList  
+    for (Student student : studentsInCourse){  
+        System.out.println("The students that are inside of the course " + courseName + " are:");  
+        System.out.println("Student ID " + student.get_studentID()  
+                + ", Contact Information: " + student.get_contactInformation() +  
+                ", Enrollment Status: " + student.get_enrollmentStatus());  
+  
+    }  
+}
+`````
+
+A foreach loop that iterates through all of the students that are inside of a course. We have done such a thing before in this project.
+

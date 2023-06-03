@@ -18,7 +18,8 @@ public class Main {
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the new line character
+            // Consume the new line character
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -45,8 +46,26 @@ public class Main {
 
     private static void addStudent(Scanner scanner, StudentManager studentManager) {
         System.out.println("Add Student");
-        // Prompt for student details and create a new Student object
-        // Call studentManager.addStudent(student) to add the student to the system
+        // We prompt the user to enter the student credentials
+
+        System.out.println("Enter student ID: ");
+        int studentID = scanner.nextInt();
+
+
+
+        System.out.println("Enter the student contact information here: ");
+        int contactInformation = scanner.nextInt();
+
+        // Consume the remaining newline character.
+        scanner.nextLine();
+
+        System.out.println("Enter enrollment Status here: ");
+        String enrollmentStatus = scanner.nextLine();;
+
+        Student student = new Student(studentID, contactInformation, enrollmentStatus);
+        // We add the new student to the studentManager object.
+
+        studentManager.addStudent(student);
     }
 
     private static void viewCourse(Scanner scanner, CourseManager courseManager) {

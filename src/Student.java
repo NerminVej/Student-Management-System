@@ -16,12 +16,12 @@ public class Student {
 
 
     public Student(int studentID, int contactInformation,
-                   String enrollmentStatus, int grade, double gpa){
+                   String enrollmentStatus){
         this.studentID = studentID;
         this.contactInformation = contactInformation;
         this.enrollmentStatus = enrollmentStatus;
         gradesOfCourses = new HashMap<>();
-        this.gpa = gpa;
+
 
     }
 
@@ -117,7 +117,7 @@ public class Student {
             totalGrades += grades;
         }
         // Divide the sum of the grades with the size of the hashmap.
-        if (gradesOfCourses.size() > 0){
+        if (!gradesOfCourses.isEmpty()){
             // We need to turn one of the variables into a double type to get a double value at the end.
             gpa = (double) totalGrades / gradesOfCourses.size();
         }

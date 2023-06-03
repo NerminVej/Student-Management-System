@@ -1,4 +1,5 @@
 public class Course {
+    // This class is responsible for creating Course objects
     private String courseName;
     private String code;
     private int creditHours;
@@ -9,6 +10,6 @@ public class Course {
         this.creditHours = creditHours;
 
     }
-    
+
 
 }

@@ -9,14 +9,17 @@ public class Student {
     // A new variable that stores the grade of each student
     // We use a Hashmap so we can put multiple grades with their respected courses inside of it.
     private HashMap<String, Integer> gradesOfCourses;
+    // A new variable to calculate the GPA of a student.
+    private double gpa;
 
 
     public Student(int studentID, int contactInformation,
-                   String enrollmentStatus, int grade){
+                   String enrollmentStatus, int grade, double gpa){
         this.studentID = studentID;
         this.contactInformation = contactInformation;
         this.enrollmentStatus = enrollmentStatus;
         gradesOfCourses = new HashMap<>();
+        this.gpa = gpa;
 
     }
 
@@ -60,6 +63,11 @@ public class Student {
         return gradesOfCourses.get(courseName);
     }
 
+    public double get_gpa(){
+        return gpa;
+    }
+
+
     // This method checks if the student already has a grade for a course. If he does then we can update it.
     public void update_grade(String courseName, int newGrade){
 
@@ -80,10 +88,30 @@ public class Student {
         }
 
     }
+
+
     // A method to print out the credentials of a student.
     public void studentPrinter(){
         System.out.println("Student ID: " + studentID);
         System.out.println("Contact Information: " + contactInformation);
         System.out.println("Enrollment Status: " + enrollmentStatus);
+    }
+
+    // A method to calculate the GPA of a student
+    public void calculateGPA(){
+        // Another variable we use to sum up all the variables
+        int totalGrades = 0;
+        // For each loop to go through the hashmap grades.
+        for (int grades : gradesOfCourses.values()){
+            totalGrades += grades;
+        }
+        // Divide the sum of the grades with the size of the hashmap.
+        if (gradesOfCourses.size() > 0){
+            // We need to turn one of the variables into a double type to get a double value at the end.
+            gpa = (double) totalGrades / gradesOfCourses.size();
+        }
+        else {
+            gpa = 0.0;
+        }
     }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// This class handles the storing of students inside an ArrayList.
 public class StudentManager {
 
     // An ArrayList is a dynamic data structure. So we use that to store our students.

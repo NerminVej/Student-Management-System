@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// This class shows all the information about a course.
 public class Course {
     // This class is responsible for creating Course objects
     private String courseName;

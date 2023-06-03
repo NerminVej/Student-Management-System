@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// This class is responsible for creating student objects.
+// Each student has different attributes such as an ID or gpa.
 public class Student {
     // All the information every student should have.
     private int studentID;

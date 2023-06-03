@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class CourseManager {
     // This class is responsible for handling the different courses
     private ArrayList<Course> courseList;

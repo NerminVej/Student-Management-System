@@ -103,3 +103,115 @@ public void deleteStudent(int studentIDToRemove){
 
 Deletion is done inside of the "StudentManager" class. We insert into the method the student ID that we want to remove. We then loop through all of our students inside of our ArrayList and if the ID that we want to remove matches with one student, then we want to remove the student.
 
+# 2. Course Management:
+
+## Add Course: Provide functionality to add new courses to the system. Collect information such as course name, code, and credit hours.
+
+````Java
+public class CourseManager {  
+    // This class is responsible for handling the different courses  
+    private ArrayList<Course> courseList;  
+  
+    public CourseManager(){  
+        courseList = new ArrayList<>();  
+  
+    }  
+  
+    // This method adds a course to the courseList ArrayList  
+    public void addCourse(Course course){  
+        courseList.add(course);  
+    }
+`````
+
+````Java
+public class Course {  
+    // This class is responsible for creating Course objects  
+    private String courseName;  
+    private String code;  
+    private int creditHours;  
+  
+    public Course(String courseName, String code, int creditHours){  
+        this.courseName = courseName;  
+        this.code = code;  
+        this.creditHours = creditHours;  
+  
+    }
+`````
+
+We created a "Course" class that has all the information a course should have. And we created the "CourseManager" class that stores all the courses inside of an ArrayList.
+
+````Java
+public void addCourse(Course course){  
+    courseList.add(course);  
+}
+`````
+
+Inside of that class we have created the "addCourse" methods that adds a course to the ArrayList "courseList".
+
+## View Course: Allow administrators to view all available courses, displaying their details.
+
+````Java
+public void viewCourse(){  
+    // foreach loop to go through all the courses  
+    for (Course course : courseList){  
+        System.out.println("Course name: " + course.get_courseName()  
+                + " Course Code " + course.get_code() +  
+                " Course Credit Hours " + course.get_creditHours());  
+  
+  
+    }  
+}
+`````
+
+With the help of a foreach loop we go through every single course and print all the information of it.
+
+## Update Course: Enable administrators to update course information, such as course name or credit hours.
+
+````Java
+public String get_courseName(){  
+    return courseName;  
+}  
+public void set_courseName(String newCourseName){  
+    courseName = newCourseName;  
+}  
+public String get_code(){  
+    return code;  
+}  
+public void set_code(String newCode){  
+    code = newCode;  
+}  
+  
+public int get_creditHours(){  
+    return creditHours;  
+}  
+public void set_CreditHours(int newCreditHours){  
+    creditHours = newCreditHours;  
+}
+`````
+
+This is done by using getters and setters inside of the "Course" class. With these methods we are able to get and set variables.
+
+## Delete Course: Allow administrators to delete courses from the system, ensuring the deletion is performed securely.
+
+
+````Java
+public void deleteCourse(String courseNameToDelete){  
+    // Foreach loop through the ArrayList to find the "Course" with the matching name.  
+    for (Course course : courseList){  
+        // We check if the course name is the same as the one we want to delete.  
+        if (course.get_courseName().equals(courseNameToDelete)){  
+            courseList.remove(course);  
+            System.out.println("The course " + course.get_courseName() + " got deleted successfully!");  
+            // To exit out of the loop.  
+            return;  
+        }  
+  
+    }  
+    // If nothing was found we print a message.  
+    System.out.println("Could not find a course with a matching name");  
+  
+}
+`````
+
+Very similar code to the delete method inside of our "StudentManger" class. This time I used a foreach loop to iterate through the ArrayList.
+

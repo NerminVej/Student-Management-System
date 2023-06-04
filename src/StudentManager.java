@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 // This class handles the storing of students inside an ArrayList.
 public class StudentManager {
@@ -52,4 +53,9 @@ public class StudentManager {
         }
         System.out.println("Student with ID " + studentIDToRemove + " was not found");
     }
+
+    public List<Student> getStudentList(){
+        return studentList;
+    }
+
 }

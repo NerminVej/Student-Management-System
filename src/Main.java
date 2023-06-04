@@ -1,13 +1,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// The main class handles the CLI portion of the project.
 public class Main {
     public static void main(String[] args) {
 
+        // The scanner we use to get the input of the user.
         Scanner scanner = new Scanner(System.in);
+
+        // Creating objects for both managers.
         StudentManager studentManager = new StudentManager();
         CourseManager courseManager = new CourseManager();
 
+        // We set up a while loop so that we can make sure that we get the right input and that the process
+        // does not get interrupted.
         boolean isRunning = true;
         while (isRunning) {
             System.out.println("----- Student Management System Menu -----");
@@ -17,10 +23,13 @@ public class Main {
             System.out.println("0. Exit");
 
             System.out.print("Enter your choice: ");
+            // We then store the choice of the user inside a variable called "choice".
             int choice = scanner.nextInt();
             // Consume the new line character
             scanner.nextLine();
 
+            // We use switch case to call different methods depending on the needs of the user.
+            // This can be further expanded upon.
             switch (choice) {
                 case 1:
                     addStudent(scanner, studentManager);
@@ -44,6 +53,7 @@ public class Main {
         scanner.close();
     }
 
+    // This method is responsible for adding a student to the student manager.
     private static void addStudent(Scanner scanner, StudentManager studentManager) {
         System.out.println("Add Student");
         // We prompt the user to enter the student credentials

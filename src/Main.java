@@ -70,7 +70,7 @@ public class Main {
         scanner.nextLine();
 
         System.out.println("Enter enrollment Status here: ");
-        String enrollmentStatus = scanner.nextLine();;
+        String enrollmentStatus = scanner.nextLine();
 
         Student student = new Student(studentID, contactInformation, enrollmentStatus);
         // We add the new student to the studentManager object.

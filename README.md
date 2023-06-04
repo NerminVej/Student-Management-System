@@ -677,5 +677,163 @@ scanner.close();
 We clean up resources here since we don't need the scanner to be open now anymore for the time being.
 
 
+````Java
+// This method is responsible for adding a student to the student manager.  
+private static void addStudent(Scanner scanner, StudentManager studentManager) {  
+    System.out.println("Add Student");  
+    // We prompt the user to enter the student credentials  
+  
+    System.out.println("Enter student ID: ");  
+    int studentID = scanner.nextInt();  
+  
+  
+  
+    System.out.println("Enter the student contact information here: ");  
+    int contactInformation = scanner.nextInt();  
+  
+    // Consume the remaining newline character.  
+    scanner.nextLine();  
+  
+    System.out.println("Enter enrollment Status here: ");  
+    String enrollmentStatus = scanner.nextLine();
+  
+    Student student = new Student(studentID, contactInformation, enrollmentStatus);  
+    // We add the new student to the studentManager object.  
+  
+    studentManager.addStudent(student);  
+}
+`````
+
+Here we have a method that adds a student to the "studentManager" object.
+
+````Java
+System.out.println("Enter student ID: ");  
+int studentID = scanner.nextInt();  
+  
+  
+  
+System.out.println("Enter the student contact information here: ");  
+int contactInformation = scanner.nextInt();  
+  
+// Consume the remaining newline character.  
+scanner.nextLine();  
+  
+System.out.println("Enter enrollment Status here: ");  
+String enrollmentStatus = scanner.nextLine();
+`````
+
+We ask here the user to input the student data.
+
+````Java
+Student student = new Student(studentID, contactInformation, enrollmentStatus);  
+// We add the new student to the studentManager object.  
+  
+studentManager.addStudent(student);
+`````
+
+The student then gets created and added to the "studentManager".
+
+````Java
+// A method to just display all the courses available inside the console.  
+private static void viewCourse(Scanner scanner, CourseManager courseManager) {  
+    System.out.println("View Course");  
+    // We use the viewCourse method in our courseManager class to view all the courses.  
+    courseManager.viewCourse();  
+}
+`````
+
+This just prints out all the courses available.
+
+````Java
+// This method asks to enter a student ID and a course name to then input a grade for that course for that student.  
+// We make multiple input validation checks to see if the student is inside the course and a legitimate student.  
+private static void assignGrade(Scanner scanner, StudentManager studentManager, CourseManager courseManager) {  
+    System.out.println("Assign Grade");  
+    // Prompt for student ID, course code, and grade  
+    System.out.println("Enter the student ID: ");  
+    int studentID = scanner.nextInt();  
+    scanner.nextLine();  
+  
+    // We want to check if the student is actually inside the studentManager studentList.  
+    if (studentManager.containsStudent(studentID)){  
+        System.out.println("Enter the course name: ");  
+        String courseName = scanner.nextLine();  
+        // We check if the course is inside the list of courses.  
+        if (courseManager.containsCourse(courseName)){  
+            System.out.println("Enter the grade: ");  
+            int grade = scanner.nextInt();  
+            scanner.nextLine();  
+            Student student = studentManager.getStudentById(studentID);  
+            // We set the grade of the student inside the course to the grade the user inputs.  
+            student.set_grade(courseName, grade);  
+        }  
+        else {  
+            System.out.println("Invalid course name.");  
+        }  
+  
+    }  
+    else {  
+        System.out.println("Invalid student ID.");  
+    }  
+  
+}
+`````
+
+Let us break down this method one by one.
+
+````Java
+System.out.println("Assign Grade");  
+// Prompt for student ID, course code, and grade  
+System.out.println("Enter the student ID: ");  
+int studentID = scanner.nextInt();  
+scanner.nextLine();
+`````
+
+We first ask the user to input a grade. After "scanner.nextInt()"" we add a "scanner.nextline()".
+the "scanner.nextline()" consumes the leftover newline charackter. So that the next time we use the scanner it reads from the next line as intended.
+
+````Java
+// We want to check if the student is actually inside the studentManager studentList.  
+if (studentManager.containsStudent(studentID)){  
+    System.out.println("Enter the course name: ");  
+    String courseName = scanner.nextLine();
+`````
+
+First "if" validation that checks if the student is inside the studentManager.
+
+````Java
+// We check if the course is inside the list of courses.  
+if (courseManager.containsCourse(courseName)){  
+    System.out.println("Enter the grade: ");  
+    int grade = scanner.nextInt();  
+    scanner.nextLine();  
+    Student student = studentManager.getStudentById(studentID);
+`````
+
+Another "if" validation that checks if the course we is a valid course inside of the courseManager.
+
+````Java
+// We set the grade of the student inside the course to the grade the user inputs.  
+student.set_grade(courseName, grade);
+`````
+
+After the validations we set the grade of the student with this command by inputting both parameters that we validated before.
+
+````Java
+    }  
+    else {  
+        System.out.println("Invalid course name.");  
+    }  
+  
+}  
+else {  
+    System.out.println("Invalid student ID.");  
+}
+`````
+
+Error handling at the end.
+
+
+
 
 

@@ -75,6 +75,9 @@ public class Main {
         courseManager.viewCourse();
     }
 
+
+    // This method asks to enter a student ID and a course name to then input a grade for that course for that student.
+    // We make multiple input validation checks to see if the student is inside the course and a legitimate student.
     private static void assignGrade(Scanner scanner, StudentManager studentManager, CourseManager courseManager) {
         System.out.println("Assign Grade");
         // Prompt for student ID, course code, and grade
@@ -84,19 +87,25 @@ public class Main {
 
         // We want to check if the student is actually inside the studentManager studentList.
         if (studentManager.containsStudent(studentID)){
-            System.out.println("Enter the course code: ");
-            String courseCode = scanner.nextLine();
+            System.out.println("Enter the course name: ");
+            String courseName = scanner.nextLine();
+            // We check if the course is inside the list of courses.
+            if (courseManager.containsCourse(courseName)){
+                System.out.println("Enter the grade: ");
+                int grade = scanner.nextInt();
+                scanner.nextLine();
+                Student student = studentManager.getStudentById(studentID);
+                // We set the grade of the student inside the course to the grade the user inputs.
+                student.set_grade(courseName, grade);
+            }
+            else {
+                System.out.println("Invalid course name.");
+            }
 
-            System.out.println("Enter the grade: ");
-            int grade = scanner.nextInt();
-            scanner.nextLine();
         }
         else {
-            return;
+            System.out.println("Invalid student ID.");
         }
 
-
-
-        // Call studentManager.assignGrade(studentID, courseCode, grade) to assign the grade to the student
     }
 }

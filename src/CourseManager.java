@@ -65,5 +65,15 @@ public class CourseManager {
         }
     }
 
+    // This method checks if a course is inside the list of courses with the course name.
+    public boolean containsCourse(String courseName){
+        for (Course course : courseList){
+            if (course.get_courseName().equals(courseName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 

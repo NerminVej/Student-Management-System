@@ -21,6 +21,17 @@ public class StudentManager {
         return false;
     }
 
+    // This method gets a student by ID.
+    public Student getStudentById(int studentID){
+        for (Student student : studentList){
+            if (student.get_studentID() == studentID){
+                return student;
+            }
+        }
+        // If student was not found just return null.
+        return null;
+    }
+
     public void addStudent(Student student){
         studentList.add(student);
     }

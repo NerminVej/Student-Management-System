@@ -68,10 +68,11 @@ public class Main {
         studentManager.addStudent(student);
     }
 
+    // A method to just display all the courses available inside the console.
     private static void viewCourse(Scanner scanner, CourseManager courseManager) {
         System.out.println("View Course");
-        // Prompt for course details or display a list of available courses
-        // Call courseManager.viewCourse(course) to retrieve and display course information
+        // We use the viewCourse method in our courseManager class to view all the courses.
+        courseManager.viewCourse();
     }
 
     private static void assignGrade(Scanner scanner, StudentManager studentManager, CourseManager courseManager) {

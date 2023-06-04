@@ -11,6 +11,16 @@ public class StudentManager {
 
     }
 
+    // This method checks if a student with the given ID exists in the studentList ArrayList.
+    public boolean containsStudent(int studentID){
+        for (Student student : studentList){
+            if (student.get_studentID() == studentID){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addStudent(Student student){
         studentList.add(student);
     }

@@ -78,6 +78,25 @@ public class Main {
     private static void assignGrade(Scanner scanner, StudentManager studentManager, CourseManager courseManager) {
         System.out.println("Assign Grade");
         // Prompt for student ID, course code, and grade
+        System.out.println("Enter the student ID: ");
+        int studentID = scanner.nextInt();
+        scanner.nextLine();
+
+        // We want to check if the student is actually inside the studentManager studentList.
+        if (studentManager.containsStudent(studentID)){
+            System.out.println("Enter the course code: ");
+            String courseCode = scanner.nextLine();
+
+            System.out.println("Enter the grade: ");
+            int grade = scanner.nextInt();
+            scanner.nextLine();
+        }
+        else {
+            return;
+        }
+
+
+
         // Call studentManager.assignGrade(studentID, courseCode, grade) to assign the grade to the student
     }
 }
